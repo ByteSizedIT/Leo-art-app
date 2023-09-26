@@ -1,0 +1,428 @@
+{
+  "artworks": [
+    {
+      "id": "1",
+      "name": "phil foden",
+      "description": "foden blah Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum",
+      "collectionIds": [],
+      "featuredStarIDs": [1],
+      "featuredTeamIDs": [101],
+      "productTypeIDs": [],
+      "tag": "",
+      "url": "/images/Foden-artwork-copy.jpg"
+    },
+    {
+      "id": "2",
+      "name": "jude bellingham",
+      "description": "bellingham blah Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum",
+      "collectionIds": [],
+      "featuredStarIDs": [2],
+      "featuredTeamIDs": [1],
+      "productTypeIDs": [],
+      "tag": "",
+      "url": "/images/Bellingham-copy.jpg"
+    },
+    {
+      "id": "3",
+      "name": "jude bellingham 2",
+      "description": "bellingham blah 2 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum",
+      "collectionIds": [],
+      "featuredStarIDs": [2],
+      "featuredTeamIDs": [201],
+      "productTypeIDs": [],
+      "tag": "",
+      "url": "/images/Bellingham-poster-copy.jpg"
+    },
+    {
+      "id": "4",
+      "name": "arnaut danjuma",
+      "description": "danjuma blah 2 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum",
+      "collectionIds": [],
+      "featuredStarIDs": [3],
+      "featuredTeamIDs": [103],
+      "productTypeIDs": [],
+      "tag": "",
+      "url": "/images/Danjuma-poster-copy.jpg"
+    },
+    {
+      "id": "5",
+      "name": "cody gakpo",
+      "description": "gakpo blah Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum",
+      "collectionIds": [],
+      "featuredStarIDs": [4],
+      "featuredTeamIDs": [102],
+      "productTypeIDs": [],
+      "tag": "",
+      "url": "/images/Gakpo.jpg"
+    },
+    {
+      "id": "6",
+      "name": "jack grealish",
+      "description": "greakish blah Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum",
+      "collectionIds": [],
+      "featuredStarIDs": [5],
+      "featuredTeamIDs": [101],
+      "productTypeIDs": [],
+      "tag": "",
+      "url": "/images/Grealish_Artwork_1 1 copy.jpg"
+    },
+    {
+      "id": "7",
+      "name": "jack grealish black and white",
+      "description": "grealish blah 2 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum",
+      "collectionIds": [],
+      "featuredStarIDs": [5],
+      "featuredTeamIDs": [101],
+      "productTypeIDs": [],
+      "tag": "",
+      "url": "/images/Grealish_Artwork_2 1 copy.jpg"
+    },
+    {
+      "id": "8",
+      "name": "ange, just ange",
+      "description": "ange blah Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum",
+      "collectionIds": [],
+      "featuredStarIDs": [6],
+      "featuredTeamIDs": [103],
+      "productTypeIDs": [],
+      "tag": "",
+      "url": "/images/Ange_Just_Ange.png"
+    },
+    {
+      "id": "9",
+      "name": "dead ball specialist 1",
+      "description": "maddison blah 2 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum",
+      "collectionIds": [],
+      "featuredStarIDs": [7],
+      "featuredTeamIDs": [103],
+      "productTypeIDs": [],
+      "tag": "",
+      "url": "/images/Dead_Ball_Specialist_Colour 1.png"
+    },
+    {
+      "id": "10",
+      "name": "dead ball specialist",
+      "description": "maddison blah Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum",
+      "collectionIds": [],
+      "featuredStarIDs": [7],
+      "featuredTeamIDs": [103],
+      "productTypeIDs": [],
+      "tag": "",
+      "url": "/images/Dead_Ball_Specialist_Colour.png"
+    },
+    {
+      "id": "11",
+      "name": "gundogan",
+      "description": "ilkay blah Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum",
+      "collectionIds": [],
+      "featuredStarIDs": [8],
+      "featuredTeamIDs": [101],
+      "productTypeIDs": [],
+      "tag": "",
+      "url": "/images/Gundogan_Artwork.png"
+    },
+    {
+      "id": "12",
+      "name": "haaland silhouette",
+      "description": "ilkay blah Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum",
+      "collectionIds": [],
+      "featuredStarIDs": [9],
+      "featuredTeamIDs": [101],
+      "productTypeIDs": [],
+      "tag": "",
+      "url": "/images/Haaland_Silhouette_.png"
+    },
+    {
+      "id": "13",
+      "name": "kane, 54 and counting",
+      "description": "kane blah Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum",
+      "collectionIds": [],
+      "featuredStarIDs": [10],
+      "featuredTeamIDs": [103],
+      "productTypeIDs": [],
+      "tag": "",
+      "url": "/images/Kane_54_And_Counting.png"
+    },
+    {
+      "id": "14",
+      "name": "land down under",
+      "description": "ange blah 2  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum",
+      "collectionIds": [],
+      "featuredStarIDs": [6],
+      "featuredTeamIDs": [103],
+      "productTypeIDs": [],
+      "tag": "",
+      "url": "/images/Land_Down_Under_Colour.png"
+    },
+    {
+      "id": "15",
+      "name": "land down under",
+      "description": "ange blah 3  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum",
+      "collectionIds": [],
+      "featuredStarIDs": [6],
+      "featuredTeamIDs": [103],
+      "productTypeIDs": [],
+      "tag": "",
+      "url": "/images/Land_Down_Under_Greyscale.png"
+    },
+    {
+      "id": "16",
+      "name": "postocoglou outline",
+      "description": "ange blah 3 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum",
+      "collectionIds": [],
+      "featuredStarIDs": [6],
+      "featuredTeamIDs": [103],
+      "productTypeIDs": [],
+      "tag": "",
+      "url": "/images/Postocoglou_Outline.png"
+    },
+    {
+      "id": "17",
+      "name": "rashford glitch",
+      "description": "rashford blah Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum",
+      "collectionIds": [],
+      "featuredStarIDs": [11],
+      "featuredTeamIDs": [104],
+      "productTypeIDs": [],
+      "tag": "",
+      "url": "/images/Rashford_Glitch.png"
+    },
+    {
+      "id": "18",
+      "name": "rashford outline ",
+      "description": "rashford blah 2 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum",
+      "collectionIds": [],
+      "featuredStarIDs": [11],
+      "featuredTeamIDs": [104],
+      "productTypeIDs": [],
+      "tag": "",
+      "url": "/images/Rashford_Outline.png"
+    },
+    {
+      "id": "19",
+      "name": "rashford silhouette",
+      "description": "rashford blah 3 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum",
+      "collectionIds": [],
+      "featuredStarIDs": [11],
+      "featuredTeamIDs": [104],
+      "productTypeIDs": [],
+      "tag": "",
+      "url": "/images/Rashford_Silhouette_.png"
+    },
+    {
+      "id": "20",
+      "name": "sonny silhouette",
+      "description": "son blah 1 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum",
+      "collectionIds": [],
+      "featuredStarIDs": [12],
+      "featuredTeamIDs": [103],
+      "productTypeIDs": [],
+      "tag": "",
+      "url": "/images/Sonny_Silhouette_.png"
+    },
+    {
+      "id": "21",
+      "name": "ted lasso",
+      "description": "ted lasso Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum",
+      "collectionIds": [],
+      "featuredStarIDs": [13],
+      "featuredTeamIDs": [],
+      "productTypeIDs": [],
+      "tag": "",
+      "url": "/images/Ted_Lasso_Shadow_And_Colour.png"
+    },
+    {
+      "id": "22",
+      "name": "title race",
+
+      "url": "/images/Title_Race.png"
+    },
+    {
+      "id": "23",
+      "name": "sarr pulls a rashford",
+      "description": "sarr blah  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum",
+      "collectionIds": [],
+      "featuredStarIDs": [15],
+      "featuredTeamIDs": [103],
+      "productTypeIDs": [],
+      "tag": "",
+      "url": "/images/Untitled_Artwork 1.png"
+    },
+    {
+      "id": "24",
+      "name": "big ange",
+      "description": "big ange blah Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum",
+      "collectionIds": [],
+      "featuredStarIDs": [6],
+      "featuredTeamIDs": [103],
+      "productTypeIDs": [],
+      "tag": "",
+      "url": "/images/Untitled_Artwork.png"
+    },
+    {
+      "id": "25",
+      "name": "leeoooooo, stay onside!",
+      "description": "leo blah  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum",
+      "collectionIds": [],
+      "featuredStarIDs": [16],
+      "featuredTeamIDs": [199],
+      "productTypeIDs": [],
+      "tag": "",
+      "url": "/images/Me.png"
+    }
+  ],
+
+  "stars": [
+    {
+      "id": 1,
+      "name": "phil foden"
+    },
+    {
+      "id": 2,
+      "name": "jude bellingham"
+    },
+    {
+      "id": 3,
+      "name": "arnaut danjuma"
+    },
+    {
+      "id": 4,
+      "name": "cody gakpo"
+    },
+    {
+      "id": 5,
+      "name": "jack grealish"
+    },
+    {
+      "id": 6,
+      "name": "ange postecoglou"
+    },
+    {
+      "id": 7,
+      "name": "james maddison"
+    },
+    {
+      "id": 8,
+      "name": "ilkay gundogan"
+    },
+    {
+      "id": 9,
+      "name": "erling haaalnd"
+    },
+    {
+      "id": 10,
+      "name": "harry kane"
+    },
+    {
+      "id": 11,
+      "name": "marcus rashford"
+    },
+    {
+      "id": 12,
+      "name": "son heung-min"
+    },
+    {
+      "id": 13,
+      "name": "ted lasso"
+    },
+    {
+      "id": 14,
+      "name": "bukayo saka"
+    },
+    {
+      "id": 15,
+      "name": "pape matar sarr"
+    },
+    {
+      "id": 16,
+      "name": "leo keemer"
+    }
+  ],
+
+  "teams": [
+    {
+      "id": "1",
+      "name": "england",
+      "leagueId": "1"
+    },
+    {
+      "id": "101",
+      "name": "man city",
+      "leagueId": "2"
+    },
+    {
+      "id": "102",
+      "name": "liverpool",
+      "leagueId": "2"
+    },
+    {
+      "id": "103",
+      "name": "tottenham",
+      "leagueId": "2"
+    },
+    {
+      "id": "104",
+      "name": "manchester united",
+      "leagueId": "2"
+    },
+    {
+      "id": "105",
+      "name": "arsenal",
+      "leagueId": "2"
+    },
+    {
+      "id": "199",
+      "name": "loughton town",
+      "leagueId": "99"
+    },
+    {
+      "id": "201",
+      "name": "borussia dortmund",
+      "leagueId": "3"
+    }
+  ],
+
+  "leagues": [
+    {
+      "id": "1",
+      "country": "international",
+      "tier": ""
+    },
+    {
+      "id": "2",
+      "country": "england",
+      "tier": "premier league"
+    },
+    {
+      "id": "3",
+      "country": "germany",
+      "tier": "bundesliga"
+    },
+    {
+      "id": "99",
+      "country": "england",
+      "tier": "echo league"
+    }
+  ],
+
+  "collections": [
+    {
+      "id": "1",
+      "name": "profiles",
+      "description": "blah de blah"
+    }
+  ],
+
+  "productTypes": [
+    {
+      "id": "1",
+      "name": "a4 poster",
+      "price": 30
+    },
+    {
+      "id": "2",
+      "name": "a3 poster",
+      "price": 45
+    }
+  ]
+}

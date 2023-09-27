@@ -12,7 +12,7 @@ export default function Gallery({ allArtWork }: { allArtWork: ArtWork[] }) {
 
   return (
     <div className="px-10">
-      <SearchForm />
+      <SearchForm placement={"gallery"} />
 
       {allArtWork?.length === 0 && <p>Oops. No art work could be found!</p>}
 

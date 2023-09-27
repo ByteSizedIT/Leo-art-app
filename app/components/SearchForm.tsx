@@ -3,7 +3,7 @@
 import { useContext } from "react";
 import { SearchContext } from "../_context/search-provider";
 
-const SearchForm = () => {
+const SearchForm = ({ placement }: { placement: string }) => {
   function updateSearch(e: React.ChangeEvent<HTMLInputElement>) {
     setSearchText(e.target.value);
   }
@@ -11,7 +11,13 @@ const SearchForm = () => {
   const { searchText, setSearchText } = useContext(SearchContext);
 
   return (
-    <form className="mb-4 text-center">
+    <form
+      className={`${
+        placement === "navbar"
+          ? "hidden md:block"
+          : "mb-4 text-center md:hidden "
+      }`}
+    >
       <input
         className="bg-transparent border-solid border-2 rounded-lg outline-none focus:outline-gray-500 px-2 py-1"
         type="text"

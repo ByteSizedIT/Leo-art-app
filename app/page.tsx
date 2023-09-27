@@ -1,5 +1,6 @@
 import getAllArtWork from "./_utils/getArt";
 import shuffle from "./_utils/shuffle";
+import Gallery from "./components/Gallery";
 
 import { ArtWork } from "./types";
 
@@ -10,11 +11,7 @@ async function Home() {
   return (
     <main className="">
       <div className="">
-        {allArtWork.map((artWork) => (
-          <>
-            <p key={artWork.id}>{artWork.name}</p>
-          </>
-        ))}
+        <Gallery allArtWork={allArtWork} />
       </div>
     </main>
   );

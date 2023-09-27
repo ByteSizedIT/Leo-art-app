@@ -1,3 +1,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+button {
+  @apply border-solid border-2 rounded-lg outline-none hover:outline-gray-500 m-6 p-2;
+}

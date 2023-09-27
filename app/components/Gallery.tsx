@@ -6,23 +6,24 @@ import SearchForm from "./SearchForm";
 
 import { useContext } from "react";
 import { SearchContext } from "../_context/search-provider";
+import ArtCard from "./ArtCard";
 
 export default function Gallery({ allArtWork }: { allArtWork: ArtWork[] }) {
   const { searchText } = useContext(SearchContext);
 
   return (
-    <div className="px-10">
+    <>
       <SearchForm placement={"gallery"} />
 
       {allArtWork?.length === 0 && <p>Oops. No art work could be found!</p>}
 
-      <div className="gallery">
+      <div className="w-full sm:columns-2 xl:columns-4 gap-0">
         {allArtWork
           .filter((artwork) => artwork.name.includes(searchText))
           .map((artwork) => (
-            <p key={artwork.id}>{artwork.name}</p>
+            <ArtCard key={artwork.id} artWork={artwork} />
           ))}
       </div>
-    </div>
+    </>
   );
 }

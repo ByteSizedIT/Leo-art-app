@@ -9,10 +9,8 @@ async function Home() {
   shuffle(allArtWork);
 
   return (
-    <main className="">
-      <div className="">
-        <Gallery allArtWork={allArtWork} />
-      </div>
+    <main className="w-full max-w-7xl flex flex-col justify-center items-center mx-auto p-10">
+      <Gallery allArtWork={allArtWork} />
     </main>
   );
 }

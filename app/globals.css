@@ -2,6 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
+h1 {
+  @apply text-center text-lg sm:text-xl md:text-xl font-semibold my-6;
+}
+
 button {
   @apply border-solid border-2 rounded-lg outline-none hover:outline-gray-500 m-6 p-2;
 }

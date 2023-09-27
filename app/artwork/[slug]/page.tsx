@@ -4,6 +4,8 @@ import { ArtWork } from "@/app/types";
 
 import getAllArtWork from "@/app/_utils/getArt";
 
+import { notFound } from "next/navigation";
+
 // Return a list of `params` to populate the [slug] dynamic segment - https://nextjs.org/docs/app/api-reference/functions/generate-static-params
 export async function generateStaticParams() {
   const artworks = await getAllArtWork();
@@ -21,6 +23,8 @@ const ArtWorkPage = async ({
   const response = await fetch(`http://localhost:4000/artworks/${slug}`, {
     next: { revalidate: 3600 },
   });
+
+  if (!response.ok) notFound();
 
   const artWork = await response.json();
 

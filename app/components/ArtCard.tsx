@@ -21,7 +21,7 @@ const ArtCard = ({
 
   return (
     <div
-      className="cursor:pointer position: relative"
+      className="cursor-pointer relative"
       key={key}
       onClick={() => router.push(`/artwork/${artWork.id}`)}
     >

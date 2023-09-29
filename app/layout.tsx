@@ -2,6 +2,7 @@ import "./globals.css";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 
+import AuthContextProvider from "./_context/auth-provider";
 import SearchTextProvider from "./_context/search-provider";
 
 import NavBar from "./components/NavBar";
@@ -21,10 +22,12 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${inter.className} flex flex-col min-h-minus-nav`}>
-        <SearchTextProvider>
-          <NavBar />
-          {children}
-        </SearchTextProvider>
+        <AuthContextProvider>
+          <SearchTextProvider>
+            <NavBar />
+            {children}
+          </SearchTextProvider>
+        </AuthContextProvider>
       </body>
     </html>
   );

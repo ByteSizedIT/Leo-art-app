@@ -6,9 +6,13 @@ import { firebaseAuth } from "../../firebase/config";
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import { useRouter } from "next/navigation";
 
+import useAuthContext from "./useAuthContext";
+
 const useSignUp = () => {
   const [error, setError] = useState<string | null>(null);
   const [isPending, setIsPending] = useState(false);
+
+  const { authDispatch } = useAuthContext();
 
   const router = useRouter();
 
@@ -31,12 +35,15 @@ const useSignUp = () => {
 
       console.log("User signed up as ", response.user);
 
-      router.push("/");
-
       // add displayName to user in firebaseAuth
+
       // dispatch login action to update local user authState
+      authDispatch({ type: "LOG_IN", payload: response.user });
+
       // add user to firestore
+
       //redirect to homepage
+      router.push("/");
     } catch (err) {
       let message;
       if (err instanceof Error) message = err.message;

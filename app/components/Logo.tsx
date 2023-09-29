@@ -11,7 +11,7 @@ const Logo = () => {
 
   return (
     <Image
-      className="rounded-xl mr-auto cursor-pointer"
+      className="mr-auto cursor-pointer"
       src={LogoImage}
       alt="Ninja logo"
       width="50"

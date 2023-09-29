@@ -20,12 +20,14 @@ interface AuthState {
 
 interface Action {
   type: string;
-  payload: {};
+  payload: {} | null;
 }
 
 export function authReducer(prevState: AuthState, action: Action) {
   switch (action.type) {
     case "LOG_IN":
+      return { ...prevState, user: action.payload };
+    case "LOG_OUT":
       return { ...prevState, user: action.payload };
     default:
       return prevState;

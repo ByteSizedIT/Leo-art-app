@@ -4,7 +4,7 @@ import { useRouter } from "next/navigation";
 
 import Image from "next/image";
 
-import LogoImage from "./logo-green-72.png";
+import LogoImage from "./pencil-logo-cropped.png";
 
 const Logo = () => {
   const router = useRouter();
@@ -14,7 +14,7 @@ const Logo = () => {
       className="mr-auto cursor-pointer"
       src={LogoImage}
       alt="Ninja logo"
-      width="50"
+      width="100"
       // width="85"
       quality={100}
       placeholder="blur"

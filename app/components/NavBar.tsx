@@ -2,6 +2,7 @@ import Link from "next/link";
 
 import Logo from "../components/Logo";
 import SearchForm from "./SearchForm";
+import LogInOut from "./LogInOut";
 
 const NavBar = () => {
   return (
@@ -14,9 +15,10 @@ const NavBar = () => {
       <Link href="/about" className="text-gray-500 hover:text-black">
         ABOUT
       </Link>
-      <Link href="/login" className="text-gray-500 hover:text-black pr-5">
+      {/* <Link href="/login" className="text-gray-500 hover:text-black pr-5">
         LOG IN
-      </Link>
+      </Link> */}
+      <LogInOut />
     </nav>
   );
 };

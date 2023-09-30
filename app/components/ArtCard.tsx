@@ -9,20 +9,17 @@ import { ArtWork } from "@/app/types";
 
 const ArtCard = ({
   artWork,
-  key,
 }: {
   artWork: ArtWork;
   handleEdit?: MouseEventHandler<HTMLParagraphElement>;
   handleDelete?: MouseEventHandler<HTMLParagraphElement>;
   handleTagClick?: MouseEventHandler<HTMLParagraphElement>;
-  key: string;
 }) => {
   const router = useRouter();
 
   return (
     <div
       className="cursor-pointer relative"
-      key={key}
       onClick={() => router.push(`/artwork/${artWork.id}`)}
     >
       <Image

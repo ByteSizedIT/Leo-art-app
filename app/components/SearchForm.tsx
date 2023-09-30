@@ -21,7 +21,7 @@ const SearchForm = ({ placement }: { placement: string }) => {
       <input
         className="bg-transparent border-solid border-2 rounded-lg outline-none focus:outline-gray-500 px-2 py-1"
         type="text"
-        placeholder="Search Art"
+        placeholder="Search gallery"
         value={searchText}
         onChange={updateSearch}
       />

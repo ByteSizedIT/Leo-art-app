@@ -10,7 +10,7 @@ const NavBar = () => {
       <Logo />
       <SearchForm placement={"navbar"} />
       <Link href="/" className="text-gray-500 hover:text-black">
-        ART
+        GALLERY
       </Link>
       <Link href="/about" className="text-gray-500 hover:text-black">
         ABOUT

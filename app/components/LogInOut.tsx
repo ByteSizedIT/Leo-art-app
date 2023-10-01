@@ -17,12 +17,12 @@ const LogInOut = () => {
   return (
     <>
       {!authState?.user ? (
-        <Link href="/login" className="text-gray-500 hover:text-black pr-5">
+        <Link href="/login" className="text-gray-500 hover:text-black ">
           LOG IN
         </Link>
       ) : (
         <p
-          className="text-gray-500 hover:text-black  pr-5 text-base cursor-pointer"
+          className="text-gray-500 hover:text-black  text-base cursor-pointer"
           onClick={handleClick}
         >
           LOG OUT
@@ -31,4 +31,5 @@ const LogInOut = () => {
     </>
   );
 };
+
 export default LogInOut;

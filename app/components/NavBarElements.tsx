@@ -12,7 +12,7 @@ const NavBarElements = () => {
 
   if (authState?.authIsReady)
     return (
-      <>
+      <div className="hidden md:flex items-center gap-10 z-10 ">
         <SearchForm placement={"navbar"} />
         <Link href="/" className="text-gray-500 hover:text-black">
           GALLERY
@@ -21,7 +21,7 @@ const NavBarElements = () => {
           ABOUT
         </Link>
         <LogInOut />
-      </>
+      </div>
     );
 };
 

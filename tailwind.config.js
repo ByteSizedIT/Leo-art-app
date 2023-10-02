@@ -13,6 +13,12 @@ module.exports = {
       minHeight: {
         ["minus-nav"]: "calc(100vh - 50px)",
       },
+      scale: {
+        ["01"]: "0.1",
+      },
+      rotate: {
+        135: "135deg",
+      },
     },
   },
   plugins: [],

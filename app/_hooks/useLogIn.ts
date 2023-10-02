@@ -20,6 +20,9 @@ const useLogIn = () => {
     console.log("logging in");
     console.log({ email, password });
 
+    setError(null);
+    setIsPending(true);
+
     try {
       // sign in user with firebaseAuth
       const response = await signInWithEmailAndPassword(
@@ -39,9 +42,11 @@ const useLogIn = () => {
       router.push("/");
     } catch (err) {
       let message;
-      if (err instanceof Error) message = err.message;
-      else message = String(error);
-      console.log(message);
+      if (err instanceof Error) {
+        message = err.message;
+        console.log("here1", message);
+      } else message = String(error);
+      console.log("here2", message);
       // send error to logging service such as Sentry
 
       setError(message);

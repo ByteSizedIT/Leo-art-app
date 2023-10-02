@@ -20,8 +20,8 @@ const useSignUp = () => {
     console.log("signing up");
     console.log({ email, password, displayName });
 
-    setIsPending(true);
     setError(null);
+    setIsPending(true);
 
     try {
       // create user with firebaseAuth

@@ -17,8 +17,8 @@ const useLogOut = () => {
   async function logOut() {
     console.log("logging out");
 
-    setIsPending(true);
     setError(null);
+    setIsPending(true);
 
     try {
       // sign out

@@ -46,14 +46,14 @@ const Burger = () => {
         <div
           className={`h-1.5 w-10 bg-black rounded-3xl ${
             isMenuOpen
-              ? "rotate-135 -translate-y-[1.18rem] translate-x-2 ease-out duration-500"
+              ? "rotate-135 -translate-y-[1.2rem] translate-x-2 ease-out duration-500"
               : ""
           }`}
         ></div>
       </div>
 
       <div
-        className={`w-6/12 h-screen bg-gray-300 bg-opacity-80 absolute top-0 right-0 -z-10 flex flex-col p-6 pt-32 gap-5 items-end ${
+        className={`visible md:hidden w-6/12 h-screen bg-gray-300 bg-opacity-80 absolute top-0 right-0 -z-10 flex flex-col p-6 pt-32 gap-5 items-end ${
           isMenuOpen ? "visible" : "hidden"
         }`}
       >

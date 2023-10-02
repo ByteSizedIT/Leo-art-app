@@ -24,7 +24,7 @@ const ArtCard = ({
     >
       <Image
         className="hover:opacity-25"
-        src={artWork.url || "/logo-green-72.png"}
+        src={artWork.imageURL}
         alt={`${artWork.name} artwork by Leo`}
         width={1000}
         height={1000}

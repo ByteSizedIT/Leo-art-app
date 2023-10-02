@@ -2,7 +2,9 @@ import Image from "next/image";
 
 import { ArtWork } from "@/app/types";
 
-import getAllArtWork from "@/app/_utils/getArt";
+import { getAllArtWork } from "@/app/_utils/getAllArt";
+
+import getSingleArtWork from "@/app/_utils/getSingleArt";
 
 import { notFound } from "next/navigation";
 
@@ -20,13 +22,14 @@ const ArtWorkPage = async ({
 }: {
   params: { slug: string };
 }) => {
-  const response = await fetch(`http://localhost:4000/artworks/${slug}`, {
-    next: { revalidate: 3600 },
-  });
+  // const response = await fetch(`http://localhost:4000/artworks/${slug}`, {
+  //   next: { revalidate: 3600 },
+  // });
 
-  if (!response.ok) notFound();
+  // if (!response.ok) notFound();
 
-  const artWork = await response.json();
+  // const artWork = await response.json();
+  const artWork: ArtWork = (await getSingleArtWork(slug)) as ArtWork;
 
   console.log({ artWork });
 
@@ -41,7 +44,7 @@ const ArtWorkPage = async ({
         </p>
       </div>
       <Image
-        src={artWork.url}
+        src={artWork.imageURL}
         alt={`${artWork?.name} artwork by Leo`}
         width={1000}
         height={1000}

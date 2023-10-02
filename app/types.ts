@@ -7,7 +7,7 @@ interface ArtWork {
   featuredTeamIDs?: number[];
   productTypeIDs?: number[];
   tag: string;
-  url: string;
+  imageURL: string;
 }
 
 export type { ArtWork };

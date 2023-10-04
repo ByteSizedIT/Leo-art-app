@@ -246,7 +246,7 @@
       "featuredTeamIDs": [103],
       "productTypeIDs": [],
       "tag": "",
-      "url": "/images/Untitled_Artwork 1.png"
+      "url": "/images/Sarr.png"
     },
     {
       "id": "24",
@@ -257,7 +257,7 @@
       "featuredTeamIDs": [103],
       "productTypeIDs": [],
       "tag": "",
-      "url": "/images/Untitled_Artwork.png"
+      "url": "/images/Big_Ange.png"
     },
     {
       "id": "25",
@@ -357,7 +357,7 @@
     },
     {
       "id": "103",
-      "name": "tottenham",
+      "name": "tottenham hotspur",
       "leagueId": "2"
     },
     {

@@ -19,7 +19,7 @@ export default function Gallery({ allArtWork }: { allArtWork: ArtWork[] }) {
 
       <div className="w-full sm:columns-2 xl:columns-4 gap-0">
         {allArtWork
-          .filter((artwork) => artwork.name.includes(searchText))
+          .filter((artwork) => artwork.name.includes(searchText.toLowerCase()))
           .map((artwork) => (
             <ArtCard key={artwork.id} artWork={artwork} />
           ))}

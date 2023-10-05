@@ -24,7 +24,7 @@ import { ArtWork } from "../types";
 // }
 
 // fetch from firebase
-import { firestoreDB } from "../../firebase/config";
+import { firestoreDB } from "../../firebase/firebase-config";
 import { collection, getDocs } from "firebase/firestore";
 
 export const revalidate = 300;

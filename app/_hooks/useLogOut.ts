@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-import { firebaseAuth } from "../../firebase/config";
+import { firebaseAuth } from "../../firebase/firebase-config";
 import { signOut } from "firebase/auth";
 import { useRouter } from "next/navigation";
 

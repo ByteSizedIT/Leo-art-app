@@ -2,7 +2,7 @@ import { ArtWork } from "../types";
 import { notFound } from "next/navigation";
 
 // fetch from firebase
-import { firestoreDB } from "../../firebase/config";
+import { firestoreDB } from "../../firebase/firebase-config";
 import { doc, getDoc } from "firebase/firestore";
 
 export const revalidate = 600;

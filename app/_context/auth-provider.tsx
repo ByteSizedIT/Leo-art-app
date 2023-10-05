@@ -4,7 +4,7 @@
 
 import { createContext, useEffect, useReducer } from "react";
 
-import { firebaseAuth } from "@/firebase/config";
+import { firebaseAuth } from "@/firebase/firebase-config";
 
 const initialAuthState = { user: null, authIsReady: false };
 

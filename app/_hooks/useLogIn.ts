@@ -17,8 +17,8 @@ const useLogIn = () => {
   const router = useRouter();
 
   async function logIn(email: string, password: string) {
-    console.log("logging in");
-    console.log({ email, password });
+    // console.log("logging in");
+    // console.log({ email, password });
 
     setError(null);
     setIsPending(true);
@@ -31,9 +31,30 @@ const useLogIn = () => {
         password
       );
 
-      if (!response) throw new Error("Could not log in!");
+      if (!response) throw new Error("Could not log in on firebase!");
 
-      console.log("User signed up as ", response.user);
+      // console.log("Full response", response);
+      // console.log("User signed up as ", response.user);
+
+      // 'login' on vercel server to generate a session cookie in exchange for the provided ID token from firebase
+      const cookieResponse = await fetch("/api/login", {
+        method: "POST",
+        headers: {
+          Authorization: `Bearer ${await response.user.getIdToken()}`,
+        },
+      });
+
+      if (!cookieResponse)
+        throw new Error("No response from api/login POST request to vercel!");
+
+      if (cookieResponse.status === 200)
+        console.log("logged in on vercel with 200 response");
+      else
+        console.log(
+          "Failed to get a 200 response from api/login POST request to vercel"
+        );
+
+      // console.log({ cookieResponse });
 
       // dispatch login action to update local user authState
       authDispatch({ type: "LOG_IN", payload: response.user });
@@ -44,9 +65,7 @@ const useLogIn = () => {
       let message;
       if (err instanceof Error) {
         message = err.message;
-        console.log("here1", message);
       } else message = String(error);
-      console.log("here2", message);
       // send error to logging service such as Sentry
 
       setError(message);

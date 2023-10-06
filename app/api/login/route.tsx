@@ -40,3 +40,20 @@ export async function POST(request: NextRequest) {
 
   return NextResponse.json({}, { status: 200 });
 }
+
+export async function GET(request: NextRequest, response: NextResponse) {
+  const session = cookies().get("session")?.value || "";
+
+  // validate if the cookie exists in the request
+  if (!session) {
+    return NextResponse.json({ isLogged: false }, { status: 401 });
+  }
+
+  // use Firebase Admin to validate the session cookie
+  const decodedClaims = await auth().verifySessionCookie(session, true);
+
+  if (!decodedClaims)
+    return NextResponse.json({ isLogged: false }, { status: 401 });
+
+  return NextResponse.json({ isLogged: true }, { status: 200 });
+}

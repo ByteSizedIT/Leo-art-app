@@ -21,7 +21,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={`${inter.className} flex flex-col min-h-minus-nav`}>
+      <body className={`${inter.className} flex flex-col min-h-screen `}>
         <AuthContextProvider>
           <SearchTextProvider>
             <NavBar />

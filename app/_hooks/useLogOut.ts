@@ -21,8 +21,24 @@ const useLogOut = () => {
     setIsPending(true);
 
     try {
-      // sign out
+      // sign out of firebase
       await signOut(firebaseAuth);
+
+      // 'logout' on vercel server for browser cookie to be removed in response
+      const response = await fetch("http://localhost:3000/api/logout", {
+        method: "POST",
+      });
+
+      console.log({ response });
+
+      if (!response.ok)
+        throw new Error("No response from api/login POST request to vercel!");
+      else if (response.status === 200)
+        console.log("cookie removed with 200 response");
+      else
+        console.log(
+          "Failed to get a 200 response from api/sign POST request to vercel"
+        );
 
       // dispatch login action to update local user authState
       authDispatch({ type: "LOG_OUT", payload: null });

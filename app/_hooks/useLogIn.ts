@@ -44,17 +44,16 @@ const useLogIn = () => {
         },
       });
 
-      if (!cookieResponse)
-        throw new Error("No response from api/login POST request to vercel!");
+      // console.log({ cookieResponse });
 
-      if (cookieResponse.status === 200)
+      if (!cookieResponse.ok)
+        throw new Error("No response from api/login POST request to vercel!");
+      else if (cookieResponse.status === 200)
         console.log("logged in on vercel with 200 response");
       else
         console.log(
           "Failed to get a 200 response from api/login POST request to vercel"
         );
-
-      // console.log({ cookieResponse });
 
       // dispatch login action to update local user authState
       authDispatch({ type: "LOG_IN", payload: response.user });

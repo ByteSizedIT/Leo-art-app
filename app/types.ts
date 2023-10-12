@@ -2,12 +2,17 @@ interface ArtWork {
   id: string;
   name: string;
   description: string;
-  collectionIds?: number[];
-  featuredStarIDs?: number[];
-  featuredTeamIDs?: number[];
-  productTypeIDs?: number[];
-  tag: string;
+  collections?: string[];
+  featuredStars?: string[];
+  featuredTeams?: string[];
+  productTypes?: string[];
+  tags: string[];
   imageURL: string;
 }
 
-export type { ArtWork };
+interface ReactSelectOption {
+  value: string;
+  label: string;
+}
+
+export type { ArtWork, ReactSelectOption };

@@ -2,6 +2,10 @@
 
 import React, { useEffect, useState, useRef } from "react";
 
+import { Dispatch } from "react";
+
+import { ArtWorkDispatchAction } from "../../types";
+
 import CreatableSelect from "react-select/creatable";
 
 import { ArtWork, ReactSelectOption as Option } from "../../types";
@@ -10,7 +14,13 @@ import { customStyles } from "@/app/_utils/react-select-styles";
 
 import sort from "@/app/_utils/sortReactSelectOptions";
 
-const CollectionsField = ({ allArtWork }: { allArtWork: ArtWork[] }) => {
+const CollectionsField = ({
+  allArtWork,
+  artWorkDispatch,
+}: {
+  allArtWork: ArtWork[];
+  artWorkDispatch: Dispatch<ArtWorkDispatchAction>;
+}) => {
   const [existingCollections, setExistingCollections] = useState<Option[]>([]);
 
   // set existing collections
@@ -37,6 +47,12 @@ const CollectionsField = ({ allArtWork }: { allArtWork: ArtWork[] }) => {
     setExistingCollections([...tempCollectionsArr]);
   }, [allArtWork]);
 
+  function handleChange(selectedOptions: Option[]) {
+    console.log(selectedOptions);
+    const collections = selectedOptions.map((collection) => collection.value);
+    artWorkDispatch({ type: "collections", payload: collections });
+  }
+
   return (
     <label className="flex flex-col sm:flex-row items-center py-2">
       <span className="text-sm sm:text-base md:text-lg pb-2 sm:pb-0">
@@ -47,6 +63,7 @@ const CollectionsField = ({ allArtWork }: { allArtWork: ArtWork[] }) => {
         styles={customStyles}
         isMulti
         options={existingCollections}
+        onChange={handleChange}
       />
     </label>
   );

@@ -2,6 +2,10 @@
 
 import React, { useEffect, useState, useRef } from "react";
 
+import { Dispatch } from "react";
+
+import { ArtWorkDispatchAction } from "../../types";
+
 import CreatableSelect from "react-select/creatable";
 
 // import Select from "react-select/dist/declarations/src/Select";
@@ -14,7 +18,13 @@ import { customStyles } from "@/app/_utils/react-select-styles";
 
 import sort from "@/app/_utils/sortReactSelectOptions";
 
-const StarsField = ({ allArtWork }: { allArtWork: ArtWork[] }) => {
+const StarsField = ({
+  allArtWork,
+  artWorkDispatch,
+}: {
+  allArtWork: ArtWork[];
+  artWorkDispatch: Dispatch<ArtWorkDispatchAction>;
+}) => {
   const [existingStars, setExistingStars] = useState<Option[]>([]);
 
   // const selectRef = useRef<Select<Option, true, GroupBase<Option>> | null>(
@@ -36,8 +46,10 @@ const StarsField = ({ allArtWork }: { allArtWork: ArtWork[] }) => {
     setExistingStars([...tempStarsArr]);
   }, [allArtWork]);
 
-  function handleChange(selectedOptions: any) {
+  function handleChange(selectedOptions: Option[]) {
     console.log(selectedOptions);
+    const featuredStars = selectedOptions.map((star) => star.value);
+    artWorkDispatch({ type: "featuredStars", payload: featuredStars });
   }
 
   return (

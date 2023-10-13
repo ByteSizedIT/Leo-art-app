@@ -1,10 +1,16 @@
 "use client";
 
-import { useState } from "react";
+import { Dispatch } from "react";
 
-const Description = () => {
-  const [description, setDescription] = useState("");
+import { ArtworkUpload, ArtWorkDispatchAction } from "../../types";
 
+const Description = ({
+  artWorkDispatch,
+  artWorkState,
+}: {
+  artWorkDispatch: Dispatch<ArtWorkDispatchAction>;
+  artWorkState: ArtworkUpload;
+}) => {
   return (
     <label
       htmlFor="description"
@@ -17,8 +23,13 @@ const Description = () => {
         className="w-full text-sm sm:text-base md:text-lg bg-transparent border-solid border-2 rounded-lg  focus:outline-gray-500 ml-2 px-2 py-1 flex-1"
         rows={4}
         id="description"
-        value={description}
-        onChange={(e) => setDescription(e.target.value)}
+        value={artWorkState.description}
+        onChange={(e) =>
+          artWorkDispatch({
+            type: "description",
+            payload: e.target.value,
+          })
+        }
         required
       />
     </label>

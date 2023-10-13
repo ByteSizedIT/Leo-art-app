@@ -1,6 +1,8 @@
 "use client";
 
-import { ArtWork } from "../../types";
+import { useEffect, useReducer } from "react";
+
+import { ArtWork, ArtworkUpload, ArtWorkDispatchAction } from "../../types";
 
 import ArtWorkNameField from "./ArtWorkNameField";
 import DescriptionField from "./DescriptionField";
@@ -11,23 +13,84 @@ import TagsField from "./TagsField";
 import ProductTypesField from "./ProductTypesField";
 import ImageUploadField from "./ImageField";
 
+const initialArtWorkState: ArtworkUpload = {
+  name: "",
+  description: "",
+  featuredStars: [],
+  featuredTeams: [],
+  collections: [],
+  tags: [],
+  productTypes: [],
+  imageURL: "",
+};
+
+function artWorkReducer(
+  prevState: ArtworkUpload,
+  action: ArtWorkDispatchAction
+) {
+  switch (action.type) {
+    case "name":
+      return { ...prevState, name: action.payload };
+    case "description":
+      return { ...prevState, description: action.payload };
+    case "featuredStars":
+      return { ...prevState, featuredStars: action.payload };
+    case "featuredTeams":
+      return { ...prevState, featuredTeams: action.payload };
+    case "collections":
+      return { ...prevState, collections: action.payload };
+    case "tags":
+      return { ...prevState, tags: action.payload };
+    case "productTypes":
+      return { ...prevState, productTypes: action.payload };
+    case "imagURL":
+      return { ...prevState, imageURL: action.payload };
+    default:
+      return prevState;
+  }
+}
+
 function handleSubmit() {}
 
 const UploadForm = ({ allArtWork }: { allArtWork: ArtWork[] }) => {
+  const [artWorkState, artWorkDispatch] = useReducer(
+    artWorkReducer,
+    initialArtWorkState
+  );
+
+  useEffect(() => {
+    console.log(artWorkState);
+  }, [artWorkState]);
+
   return (
     <form
       className="w-full flex flex-col md:w-6/12 mx-auto p-4 rounded-lg border-solid border-2 border-[#ddd] shadow-md"
       // w-96
       onSubmit={handleSubmit}
     >
-      <ArtWorkNameField />
-      <DescriptionField />
-      <StarsField allArtWork={allArtWork} />
-      <TeamsField allArtWork={allArtWork} />
-      <CollectionsField allArtWork={allArtWork} />
-      <TagsField allArtWork={allArtWork} />
-      <ProductTypesField allArtWork={allArtWork} />
-      <ImageUploadField />
+      <ArtWorkNameField
+        artWorkState={artWorkState}
+        artWorkDispatch={artWorkDispatch}
+      />
+      <DescriptionField
+        artWorkState={artWorkState}
+        artWorkDispatch={artWorkDispatch}
+      />
+      <StarsField allArtWork={allArtWork} artWorkDispatch={artWorkDispatch} />
+      <TeamsField allArtWork={allArtWork} artWorkDispatch={artWorkDispatch} />
+      <CollectionsField
+        allArtWork={allArtWork}
+        artWorkDispatch={artWorkDispatch}
+      />
+      <TagsField allArtWork={allArtWork} artWorkDispatch={artWorkDispatch} />
+      <ProductTypesField
+        allArtWork={allArtWork}
+        artWorkDispatch={artWorkDispatch}
+      />
+      <ImageUploadField
+        artWorkState={artWorkState}
+        artWorkDispatch={artWorkDispatch}
+      />
       <button
         type="submit"
         className="w-1/2 mx-auto text-sm sm:text-base md:text-lg"

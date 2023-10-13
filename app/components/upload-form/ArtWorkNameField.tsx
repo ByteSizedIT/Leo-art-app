@@ -1,10 +1,16 @@
 "use client";
 
-import { useState } from "react";
+import { Dispatch } from "react";
 
-const ArtWorkName = () => {
-  const [artWorkName, setArtWorkName] = useState("");
+import { ArtworkUpload, ArtWorkDispatchAction } from "../../types";
 
+const ArtWorkName = ({
+  artWorkDispatch,
+  artWorkState,
+}: {
+  artWorkDispatch: Dispatch<ArtWorkDispatchAction>;
+  artWorkState: ArtworkUpload;
+}) => {
   return (
     <label
       htmlFor="name"
@@ -17,8 +23,10 @@ const ArtWorkName = () => {
         className="w-full text-sm sm:text-base md:text-lg bg-transparent border-solid border-2 rounded-lg focus:outline-gray-500 ml-2 px-2 py-1 flex-1"
         id="name"
         type="text"
-        value={artWorkName}
-        onChange={(e) => setArtWorkName(e.target.value)}
+        value={artWorkState.name}
+        onChange={(e) =>
+          artWorkDispatch({ type: "name", payload: e.target.value })
+        }
         required
       />
     </label>

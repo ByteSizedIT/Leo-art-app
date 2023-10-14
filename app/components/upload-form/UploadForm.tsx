@@ -2,6 +2,10 @@
 
 import { useEffect, useReducer } from "react";
 
+import { firestoreDB } from "@/firebase/firebase-config";
+
+import { collection, addDoc } from "firebase/firestore";
+
 import { ArtWork, ArtworkUpload, ArtWorkDispatchAction } from "../../types";
 
 import ArtWorkNameField from "./ArtWorkNameField";
@@ -12,6 +16,7 @@ import CollectionsField from "./CollectionsField";
 import TagsField from "./TagsField";
 import ProductTypesField from "./ProductTypesField";
 import ImageUploadField from "./ImageField";
+import { firestore } from "firebase-admin";
 
 const initialArtWorkState: ArtworkUpload = {
   name: "",
@@ -50,8 +55,6 @@ function artWorkReducer(
   }
 }
 
-function handleSubmit() {}
-
 const UploadForm = ({ allArtWork }: { allArtWork: ArtWork[] }) => {
   const [artWorkState, artWorkDispatch] = useReducer(
     artWorkReducer,
@@ -61,6 +64,15 @@ const UploadForm = ({ allArtWork }: { allArtWork: ArtWork[] }) => {
   useEffect(() => {
     console.log(artWorkState);
   }, [artWorkState]);
+
+  async function handleSubmit() {
+    // Add a new document with a generated id.
+    const docRef = await addDoc(
+      collection(firestoreDB, "artworks"),
+      artWorkState
+    );
+    console.log("Document written with ID: ", docRef.id);
+  }
 
   return (
     <form

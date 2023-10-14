@@ -4,17 +4,9 @@
 
 import { createContext, useEffect, useReducer } from "react";
 
+import { Dispatch } from "react";
+
 import { firebaseAuth } from "@/firebase/firebase-config";
-
-const initialAuthState = { user: null, authIsReady: false };
-
-export const AuthContext = createContext<{
-  authState: AuthState;
-  authDispatch: React.Dispatch<Action>;
-}>({
-  authState: initialAuthState,
-  authDispatch: () => {},
-});
 
 interface AuthState {
   user: {} | null;
@@ -25,6 +17,16 @@ interface Action {
   type: string;
   payload: {} | null;
 }
+
+const initialAuthState: AuthState = { user: null, authIsReady: false };
+
+export const AuthContext = createContext<{
+  authState: AuthState;
+  authDispatch: Dispatch<Action>;
+}>({
+  authState: initialAuthState,
+  authDispatch: () => {},
+});
 
 export function authReducer(prevState: AuthState, action: Action) {
   switch (action.type) {
@@ -48,6 +50,7 @@ const AuthContextProvider = ({ children }: { children: React.ReactNode }) => {
   useEffect(() => {
     // onAuthStateChange observer - Effectively sets listener that fires cback function to dispatch every time there is a user state change on firebase. H/e it returns an unsubscribe function that can be invoked immediately after the first time it fires so that it only happens once on mount
     const unsubscribe = firebaseAuth.onAuthStateChanged((userSessionCookie) => {
+      console.log({ userSessionCookie });
       authDispatch({ type: "AUTH_IS_READY", payload: userSessionCookie });
       unsubscribe();
     });

@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect, useState, useRef } from "react";
+import React, { useEffect, useState } from "react";
 
 import { Dispatch } from "react";
 
@@ -8,7 +8,9 @@ import { ArtWorkDispatchAction } from "../../types";
 
 import CreatableSelect from "react-select/creatable";
 
-import { ArtWork, ReactSelectOption as Option } from "../../types";
+import { MultiValue, ActionMeta } from "react-select";
+
+import { ArtWork, ReactSelectOption } from "../../types";
 
 import { customStyles } from "@/app/_utils/react-select-styles";
 
@@ -21,11 +23,11 @@ const TeamsField = ({
   allArtWork: ArtWork[];
   artWorkDispatch: Dispatch<ArtWorkDispatchAction>;
 }) => {
-  const [existingTeams, setExistingTeams] = useState<Option[]>([]);
+  const [existingTeams, setExistingTeams] = useState<ReactSelectOption[]>([]);
 
   // set existing teams
   useEffect(() => {
-    const tempTeamsArr: Option[] = [];
+    const tempTeamsArr: ReactSelectOption[] = [];
     allArtWork.forEach((artWork) => {
       if (artWork.featuredTeams && artWork.featuredTeams.length > 0) {
         artWork.featuredTeams.forEach((featuredTeam) => {
@@ -43,8 +45,10 @@ const TeamsField = ({
     setExistingTeams([...tempTeamsArr]);
   }, [allArtWork]);
 
-  function handleChange(selectedOptions: Option[]) {
-    console.log(selectedOptions);
+  function handleChange(
+    selectedOptions: MultiValue<ReactSelectOption>
+    // , actionMeta: ActionMeta<ReactSelectOption>
+  ) {
     const featuredTeams = selectedOptions.map((team) => team.value);
     artWorkDispatch({ type: "featuredTeams", payload: featuredTeams });
   }

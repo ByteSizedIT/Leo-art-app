@@ -2,7 +2,7 @@
 
 import { Dispatch } from "react";
 
-import { ArtworkUpload, ArtWorkDispatchAction } from "../../types";
+import { ArtWorkDispatchAction } from "../../types";
 
 const ImageField = ({
   artWorkDispatch,

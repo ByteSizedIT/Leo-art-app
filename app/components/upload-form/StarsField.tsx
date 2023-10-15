@@ -4,15 +4,15 @@ import React, { useEffect, useState, useRef } from "react";
 
 import { Dispatch } from "react";
 
-import { ArtWorkDispatchAction } from "../../types";
+import { ArtWork, ArtWorkDispatchAction, ReactSelectOption } from "../../types";
 
 import CreatableSelect from "react-select/creatable";
+
+import { MultiValue, ActionMeta } from "react-select";
 
 // import Select from "react-select/dist/declarations/src/Select";
 
 // import { GroupBase } from "react-select";
-
-import { ArtWork, ReactSelectOption as Option } from "../../types";
 
 import { customStyles } from "@/app/_utils/react-select-styles";
 
@@ -25,7 +25,7 @@ const StarsField = ({
   allArtWork: ArtWork[];
   artWorkDispatch: Dispatch<ArtWorkDispatchAction>;
 }) => {
-  const [existingStars, setExistingStars] = useState<Option[]>([]);
+  const [existingStars, setExistingStars] = useState<ReactSelectOption[]>([]);
 
   // const selectRef = useRef<Select<Option, true, GroupBase<Option>> | null>(
   //   null
@@ -33,7 +33,7 @@ const StarsField = ({
 
   // set existing stars
   useEffect(() => {
-    const tempStarsArr: Option[] = [];
+    const tempStarsArr: ReactSelectOption[] = [];
     allArtWork.forEach((artWork) => {
       if (artWork.featuredStars && artWork.featuredStars.length > 0) {
         artWork.featuredStars.forEach((featuredStar) => {
@@ -46,8 +46,10 @@ const StarsField = ({
     setExistingStars([...tempStarsArr]);
   }, [allArtWork]);
 
-  function handleChange(selectedOptions: Option[]) {
-    console.log(selectedOptions);
+  function handleChange(
+    selectedOptions: MultiValue<ReactSelectOption>
+    // , actionMeta: ActionMeta<ReactSelectOption>
+  ) {
     const featuredStars = selectedOptions.map((star) => star.value);
     artWorkDispatch({ type: "featuredStars", payload: featuredStars });
   }

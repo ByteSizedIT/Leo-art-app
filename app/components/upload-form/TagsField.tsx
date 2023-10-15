@@ -8,7 +8,9 @@ import { ArtWorkDispatchAction } from "../../types";
 
 import CreatableSelect from "react-select/creatable";
 
-import { ArtWork, ReactSelectOption as Option } from "../../types";
+import { MultiValue, ActionMeta } from "react-select";
+
+import { ArtWork, ReactSelectOption } from "../../types";
 
 import { customStyles } from "@/app/_utils/react-select-styles";
 
@@ -21,11 +23,11 @@ const TagsField = ({
   allArtWork: ArtWork[];
   artWorkDispatch: Dispatch<ArtWorkDispatchAction>;
 }) => {
-  const [existingTags, setExistingTags] = useState<Option[]>([]);
+  const [existingTags, setExistingTags] = useState<ReactSelectOption[]>([]);
 
   // set existing Tags
   useEffect(() => {
-    const tempTagsArr: Option[] = [];
+    const tempTagsArr: ReactSelectOption[] = [];
     allArtWork.forEach((artWork) => {
       if (artWork.tags && artWork.tags.length > 0) {
         artWork?.tags?.forEach((featuredTag) => {
@@ -43,8 +45,10 @@ const TagsField = ({
     setExistingTags([...tempTagsArr]);
   }, [allArtWork]);
 
-  function handleChange(selectedOptions: Option[]) {
-    console.log(selectedOptions);
+  function handleChange(
+    selectedOptions: MultiValue<ReactSelectOption>
+    // , actionMeta: ActionMeta<ReactSelectOption>
+  ) {
     const tags = selectedOptions.map((tag) => tag.value);
     artWorkDispatch({ type: "tags", payload: tags });
   }

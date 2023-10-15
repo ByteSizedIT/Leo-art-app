@@ -8,7 +8,9 @@ import { ArtWorkDispatchAction } from "../../types";
 
 import CreatableSelect from "react-select/creatable";
 
-import { ArtWork, ReactSelectOption as Option } from "../../types";
+import { MultiValue, ActionMeta } from "react-select";
+
+import { ArtWork, ReactSelectOption } from "../../types";
 
 import { customStyles } from "@/app/_utils/react-select-styles";
 
@@ -21,13 +23,13 @@ const ProductTypesField = ({
   allArtWork: ArtWork[];
   artWorkDispatch: Dispatch<ArtWorkDispatchAction>;
 }) => {
-  const [existingProductTypes, setExistingProductTypes] = useState<Option[]>(
-    []
-  );
+  const [existingProductTypes, setExistingProductTypes] = useState<
+    ReactSelectOption[]
+  >([]);
 
   // set existing ProductTypes
   useEffect(() => {
-    const tempProductTypesArr: Option[] = [];
+    const tempProductTypesArr: ReactSelectOption[] = [];
     allArtWork.forEach((artWork) => {
       if (artWork.productTypes && artWork.productTypes.length > 0) {
         artWork.productTypes.forEach((featuredProductType) => {
@@ -49,7 +51,7 @@ const ProductTypesField = ({
     setExistingProductTypes([...tempProductTypesArr]);
   }, [allArtWork]);
 
-  function handleChange(selectedOptions: Option[]) {
+  function handleChange(selectedOptions: MultiValue<ReactSelectOption>) {
     console.log(selectedOptions);
     const productTypes = selectedOptions.map(
       (productType) => productType.value

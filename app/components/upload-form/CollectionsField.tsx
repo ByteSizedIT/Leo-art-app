@@ -8,7 +8,9 @@ import { ArtWorkDispatchAction } from "../../types";
 
 import CreatableSelect from "react-select/creatable";
 
-import { ArtWork, ReactSelectOption as Option } from "../../types";
+import { MultiValue, ActionMeta } from "react-select";
+
+import { ArtWork, ReactSelectOption } from "../../types";
 
 import { customStyles } from "@/app/_utils/react-select-styles";
 
@@ -21,11 +23,13 @@ const CollectionsField = ({
   allArtWork: ArtWork[];
   artWorkDispatch: Dispatch<ArtWorkDispatchAction>;
 }) => {
-  const [existingCollections, setExistingCollections] = useState<Option[]>([]);
+  const [existingCollections, setExistingCollections] = useState<
+    ReactSelectOption[]
+  >([]);
 
   // set existing collections
   useEffect(() => {
-    const tempCollectionsArr: Option[] = [];
+    const tempCollectionsArr: ReactSelectOption[] = [];
     allArtWork.forEach((artWork) => {
       if (artWork.collections && artWork.collections.length > 0) {
         artWork.collections.forEach((featuredCollection) => {
@@ -47,8 +51,10 @@ const CollectionsField = ({
     setExistingCollections([...tempCollectionsArr]);
   }, [allArtWork]);
 
-  function handleChange(selectedOptions: Option[]) {
-    console.log(selectedOptions);
+  function handleChange(
+    selectedOptions: MultiValue<ReactSelectOption>
+    // , actionMeta: ActionMeta<ReactSelectOption>
+  ) {
     const collections = selectedOptions.map((collection) => collection.value);
     artWorkDispatch({ type: "collections", payload: collections });
   }

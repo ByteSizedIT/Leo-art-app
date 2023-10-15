@@ -1,12 +1,17 @@
 "use client";
 
-import { useEffect, useReducer } from "react";
-
-import { firestoreDB } from "@/firebase/firebase-config";
+import { useReducer } from "react";
 
 import { collection, addDoc } from "firebase/firestore";
+import { ref, uploadBytes, getDownloadURL } from "firebase/storage";
 
-import { ArtWork, ArtworkUpload, ArtWorkDispatchAction } from "../../types";
+import { firestoreDB, firebaseStorage } from "@/firebase/firebase-config";
+
+import {
+  ArtWorkDownload,
+  ArtworkUpload,
+  ArtWorkDispatchAction,
+} from "../../types";
 
 import ArtWorkNameField from "./ArtWorkNameField";
 import DescriptionField from "./DescriptionField";
@@ -16,7 +21,6 @@ import CollectionsField from "./CollectionsField";
 import TagsField from "./TagsField";
 import ProductTypesField from "./ProductTypesField";
 import ImageUploadField from "./ImageField";
-import { firestore } from "firebase-admin";
 
 const initialArtWorkState: ArtworkUpload = {
   name: "",
@@ -27,6 +31,7 @@ const initialArtWorkState: ArtworkUpload = {
   tags: [],
   productTypes: [],
   imageURL: "",
+  image: null,
 };
 
 function artWorkReducer(
@@ -48,29 +53,44 @@ function artWorkReducer(
       return { ...prevState, tags: action.payload };
     case "productTypes":
       return { ...prevState, productTypes: action.payload };
-    case "imagURL":
-      return { ...prevState, imageURL: action.payload };
+    case "image":
+      return { ...prevState, image: action.payload };
     default:
       return prevState;
   }
 }
 
-const UploadForm = ({ allArtWork }: { allArtWork: ArtWork[] }) => {
+const UploadForm = ({ allArtWork }: { allArtWork: ArtWorkDownload[] }) => {
   const [artWorkState, artWorkDispatch] = useReducer(
     artWorkReducer,
     initialArtWorkState
   );
 
-  useEffect(() => {
-    console.log(artWorkState);
-  }, [artWorkState]);
-
   async function handleSubmit() {
+    // Create a reference to tobe file in storage
+    const artWorkRef = ref(firebaseStorage, artWorkState.image?.name);
+
+    // Create file to update metadata
+    const newMetadata = {
+      contentType: "image/jpeg",
+    };
+
+    // 'file' comes from the Blob or File API
+    await uploadBytes(artWorkRef, artWorkState.image, newMetadata);
+
+    const imageURL = await getDownloadURL(artWorkRef);
+
     // Add a new document with a generated id.
-    const docRef = await addDoc(
-      collection(firestoreDB, "artworks"),
-      artWorkState
-    );
+    const docRef = await addDoc(collection(firestoreDB, "artworks"), {
+      name: artWorkState.name,
+      description: artWorkState.description,
+      featuredStars: artWorkState.featuredStars,
+      featuredTeams: artWorkState.featuredTeams,
+      collections: artWorkState.collections,
+      tags: artWorkState.tags,
+      productTypes: artWorkState.productTypes,
+      imageURL,
+    });
     console.log("Document written with ID: ", docRef.id);
   }
 
@@ -99,10 +119,7 @@ const UploadForm = ({ allArtWork }: { allArtWork: ArtWork[] }) => {
         allArtWork={allArtWork}
         artWorkDispatch={artWorkDispatch}
       />
-      <ImageUploadField
-        artWorkState={artWorkState}
-        artWorkDispatch={artWorkDispatch}
-      />
+      <ImageUploadField artWorkDispatch={artWorkDispatch} />
       <button
         type="submit"
         className="w-1/2 mx-auto text-sm sm:text-base md:text-lg"
@@ -112,4 +129,5 @@ const UploadForm = ({ allArtWork }: { allArtWork: ArtWork[] }) => {
     </form>
   );
 };
+
 export default UploadForm;

@@ -28,7 +28,7 @@ const firestoreDB = getFirestore(firebaseApp);
 const firebaseAuth = getAuth(firebaseApp);
 const firebaseStorage = getStorage(firebaseApp);
 
-export { firestoreDB, firebaseAuth };
+export { firestoreDB, firebaseAuth, firebaseStorage };
 
 // To use a feature, like monitoring authentication state, import them as individual functions that take the firebase service as the first parameter. For example, the onAuthStateChanged function then takes a cb that returns whether the user is logged in:
 // import {getAuth, onAuthStateChanged} from firebase/authentication

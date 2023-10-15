@@ -5,12 +5,12 @@ import { MouseEventHandler } from "react";
 import { useRouter } from "next/navigation";
 import Image from "next/image";
 
-import { ArtWork } from "@/app/types";
+import { ArtWorkDownload } from "@/app/types";
 
 const ArtCard = ({
   artWork,
 }: {
-  artWork: ArtWork;
+  artWork: ArtWorkDownload;
   handleEdit?: MouseEventHandler<HTMLParagraphElement>;
   handleDelete?: MouseEventHandler<HTMLParagraphElement>;
   handleTagClick?: MouseEventHandler<HTMLParagraphElement>;

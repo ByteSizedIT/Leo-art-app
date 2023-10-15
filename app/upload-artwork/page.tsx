@@ -1,13 +1,13 @@
 import { getAllArtWork } from "../_utils/getAllArt";
 
-import { ArtWork } from "../types";
+import { ArtWorkDownload } from "../types";
 
 import UploadForm from "../components/upload-form/UploadForm";
 
 export const revalidate = 300;
 
 const UploadArtwork = async () => {
-  const allArtWork: ArtWork[] = await getAllArtWork();
+  const allArtWork: ArtWorkDownload[] = await getAllArtWork();
 
   return (
     <div className="w-full flex flex-col justify-center items-center text-center mx-auto p-5">

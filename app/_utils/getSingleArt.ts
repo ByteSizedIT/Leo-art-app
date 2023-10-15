@@ -1,4 +1,4 @@
-import { ArtWork } from "../types";
+import { ArtWorkDownload } from "../types";
 import { notFound } from "next/navigation";
 
 // fetch from firebase
@@ -13,7 +13,10 @@ export default async function getSingleArtWork(id: string) {
     const docSnap = await getDoc(docRef);
     if (docSnap.exists()) {
       //   console.log("Document data:", docSnap.data());
-      const ArtWork: ArtWork = { ...docSnap.data(), id: docSnap.id } as ArtWork;
+      const ArtWork: ArtWorkDownload = {
+        ...docSnap.data(),
+        id: docSnap.id,
+      } as ArtWorkDownload;
       //   console.log({ ArtWork });
       return ArtWork;
     } else {

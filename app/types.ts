@@ -1,4 +1,4 @@
-export interface ArtworkUpload {
+export interface ArtWork {
   name: string;
   description: string;
   featuredStars?: Array<string>;
@@ -9,18 +9,20 @@ export interface ArtworkUpload {
   imageURL: string;
 }
 
-export interface ArtWorkDispatchAction {
-  type: string;
-  payload: string | Array<string>;
+export interface ArtworkUpload extends ArtWork {
+  image: File | null;
 }
 
-interface ArtWork extends ArtworkUpload {
+export interface ArtWorkDownload extends ArtWork {
   id: string;
 }
 
-interface ReactSelectOption {
+export interface ArtWorkDispatchAction {
+  type: string;
+  payload: string | Array<string> | File;
+}
+
+export interface ReactSelectOption {
   value: string;
   label: string;
 }
-
-export type { ArtWork, ReactSelectOption };

@@ -66,7 +66,9 @@ const UploadForm = ({ allArtWork }: { allArtWork: ArtWorkDownload[] }) => {
     initialArtWorkState
   );
 
-  async function handleSubmit() {
+  async function handleSubmit(e: React.FormEvent) {
+    e.preventDefault();
+
     // Create a reference to tobe file in storage
     const artWorkRef = ref(firebaseStorage, artWorkState.image?.name);
 

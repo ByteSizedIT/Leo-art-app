@@ -34,7 +34,7 @@ const initialArtWorkState: ArtworkUpload = {
   image: null,
 };
 
-function artWorkReducer(
+export function artWorkReducer(
   prevState: ArtworkUpload,
   action: ArtWorkDispatchAction
 ) {
@@ -76,7 +76,8 @@ const UploadForm = ({ allArtWork }: { allArtWork: ArtWorkDownload[] }) => {
     };
 
     // 'file' comes from the Blob or File API
-    await uploadBytes(artWorkRef, artWorkState.image, newMetadata);
+    if (artWorkState.image)
+      await uploadBytes(artWorkRef, artWorkState.image, newMetadata);
 
     const imageURL = await getDownloadURL(artWorkRef);
 

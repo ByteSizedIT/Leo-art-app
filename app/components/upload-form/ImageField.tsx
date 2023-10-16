@@ -17,6 +17,8 @@ const ImageField = ({
       <input
         required
         type="file"
+        accept=".png"
+        className="w-full text-sm sm:text-base md:text-lg bg-transparent border-solid border-2 rounded-lg  focus:outline-gray-500 ml-2 px-2 py-1 flex-1"
         onChange={(e) => {
           console.log(e.target.files);
           if (e.target.files && e.target.files[0])

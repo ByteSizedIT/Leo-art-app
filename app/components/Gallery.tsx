@@ -1,6 +1,6 @@
 "use client";
 
-import { ArtWork } from "@/app/types";
+import { ArtWorkDownload } from "@/app/types";
 
 import SearchForm from "./SearchForm";
 
@@ -8,7 +8,11 @@ import { useContext } from "react";
 import { SearchContext } from "../_context/search-provider";
 import ArtCard from "./ArtCard";
 
-export default function Gallery({ allArtWork }: { allArtWork: ArtWork[] }) {
+export default function Gallery({
+  allArtWork,
+}: {
+  allArtWork: ArtWorkDownload[];
+}) {
   const { searchText } = useContext(SearchContext);
 
   return (

@@ -1,6 +1,6 @@
 import Image from "next/image";
 
-import { ArtWork } from "@/app/types";
+import { ArtWorkDownload } from "@/app/types";
 
 import { getAllArtWork } from "@/app/_utils/getAllArt";
 
@@ -12,7 +12,7 @@ import { notFound } from "next/navigation";
 export async function generateStaticParams() {
   const artworks = await getAllArtWork();
 
-  return artworks.map((artwork: ArtWork) => ({
+  return artworks.map((artwork: ArtWorkDownload) => ({
     slug: artwork.id,
   }));
 }
@@ -29,7 +29,9 @@ const ArtWorkPage = async ({
   // if (!response.ok) notFound();
 
   // const artWork = await response.json();
-  const artWork: ArtWork = (await getSingleArtWork(slug)) as ArtWork;
+  const artWork: ArtWorkDownload = (await getSingleArtWork(
+    slug
+  )) as ArtWorkDownload;
 
   console.log({ artWork });
 

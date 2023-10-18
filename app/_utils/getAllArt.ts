@@ -1,6 +1,6 @@
 import { cache } from "react";
 
-import { ArtWork } from "../types";
+import { ArtWorkDownload } from "../types";
 
 // fetch using json-server to retrieve all artworks from local db.json
 // export default async function getAllArtWork() {
@@ -34,10 +34,10 @@ export const revalidate = 300;
 //   return cache(async () => {})}
 export const getAllArtWork = cache(async () => {
   try {
-    const allArtWork: ArtWork[] = [];
+    const allArtWork: ArtWorkDownload[] = [];
     const querySnapshot = await getDocs(collection(firestoreDB, "artworks"));
     querySnapshot.forEach((doc) => {
-      allArtWork.push({ ...doc.data(), id: doc.id } as ArtWork);
+      allArtWork.push({ ...doc.data(), id: doc.id } as ArtWorkDownload);
     });
     return allArtWork;
   } catch (err) {

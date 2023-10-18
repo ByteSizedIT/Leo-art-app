@@ -2,12 +2,12 @@ import { getAllArtWork } from "./_utils/getAllArt";
 import shuffle from "./_utils/shuffle";
 import Gallery from "./components/Gallery";
 
-import { ArtWork } from "./types";
+import { ArtWorkDownload } from "./types";
 
 export const revalidate = 300;
 
 async function Home() {
-  let allArtWork: ArtWork[] = await getAllArtWork();
+  let allArtWork: ArtWorkDownload[] = await getAllArtWork();
   shuffle(allArtWork);
 
   return (

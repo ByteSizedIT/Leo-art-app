@@ -29,16 +29,16 @@ const SignUpPage = () => {
   if (authState.authIsReady && authState?.user) return router.push("/");
   if (authState.authIsReady && !authState.user)
     return (
-      <div className="flex flex-grow items-center p-5">
+      <div className="flex flex-grow items-center justify-center p-5">
         <form
-          className="flex flex-col w-96 mx-auto p-4 rounded-lg border-solid border-2 border-[#ddd] shadow-md"
+          className="w-full sm:w-96 flex flex-col rounded-lg border-solid border-2 border-[#ddd] shadow-md p-4"
           onSubmit={handleSubmit}
         >
           <h1>SIGN UP</h1>
           <label htmlFor="email" className="w-full flex items-center py-2">
             <span className="text-sm sm:text-base md:text-lg">Email: </span>
             <input
-              className="text-sm sm:text-base md:text-lg bg-transparent border-solid border-2 rounded-lg outline-none focus:outline-gray-500 mx-2 px-2 py-1 flex-1"
+              className="text-sm sm:text-base md:text-lg bg-transparent border-solid border-2 rounded-lg outline-none focus:outline-gray-500 ml-2 px-2 py-1 flex-1"
               id="email"
               type="text"
               value={email}
@@ -49,7 +49,7 @@ const SignUpPage = () => {
           <label htmlFor="password" className="w-full flex items-center py-2">
             <span className="text-sm sm:text-base md:text-lg">Password: </span>
             <input
-              className="text-sm sm:text-base md:text-lg bg-transparent border-solid border-2 rounded-lg outline-none focus:outline-gray-500 mx-2 px-2 py-1 flex-1"
+              className="text-sm sm:text-base md:text-lg bg-transparent border-solid border-2 rounded-lg outline-none focus:outline-gray-500 ml-2 px-2 py-1 flex-1"
               id="password"
               type="password"
               autoComplete="new-password"
@@ -80,12 +80,15 @@ const SignUpPage = () => {
             </p>
           )}
           {isPending && (
-            <button className="text-sm sm:text-base md:text-lg disabled">
+            <button className="w-1/2 mx-auto text-sm sm:text-base md:text-lg disabled">
               Submitting...
             </button>
           )}
           {!isPending && (
-            <button type="submit" className="text-sm sm:text-base md:text-lg">
+            <button
+              type="submit"
+              className="w-1/2 mx-auto text-sm sm:text-base md:text-lg"
+            >
               Submit
             </button>
           )}

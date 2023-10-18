@@ -20,6 +20,14 @@ const NavBarElements = () => {
         <Link href="/about" className="text-gray-500 hover:text-black">
           ABOUT
         </Link>
+        {authState.user?.isAdmin && (
+          <Link
+            href="/upload-artwork"
+            className="text-gray-500 hover:text-black"
+          >
+            UPLOAD
+          </Link>
+        )}
         <LogInOut />
       </div>
     );

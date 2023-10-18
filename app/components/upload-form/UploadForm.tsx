@@ -99,7 +99,7 @@ const UploadForm = ({ allArtWork }: { allArtWork: ArtWorkDownload[] }) => {
 
   return (
     <form
-      className="w-full flex flex-col md:w-6/12 mx-auto p-4 rounded-lg border-solid border-2 border-[#ddd] shadow-md"
+      className="w-full flex flex-col md:w-9/12 lg:w-6/12 mx-auto p-4 rounded-lg border-solid border-2 border-[#ddd] shadow-md"
       // w-96
       onSubmit={handleSubmit}
     >

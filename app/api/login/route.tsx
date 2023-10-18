@@ -52,8 +52,10 @@ export async function GET(request: NextRequest, response: NextResponse) {
   // use Firebase Admin to validate the session cookie
   const decodedClaims = await auth().verifySessionCookie(session, true);
 
-  if (!decodedClaims)
-    return NextResponse.json({ isLogged: false }, { status: 401 });
+  console.log({ decodedClaims });
 
-  return NextResponse.json({ isLogged: true }, { status: 200 });
+  if (!decodedClaims.admin)
+    return NextResponse.json({ isAdmin: false }, { status: 401 });
+
+  return NextResponse.json({ isAdmin: true }, { status: 200 });
 }

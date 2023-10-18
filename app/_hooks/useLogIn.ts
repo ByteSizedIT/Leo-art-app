@@ -33,10 +33,21 @@ const useLogIn = () => {
 
       if (!response) throw new Error("Could not log in!");
 
-      console.log("User signed up as ", response.user);
+      console.log("User logged in as ", response.user);
 
-      // dispatch login action to update local user authState
-      authDispatch({ type: "LOG_IN", payload: response.user });
+      // get user token and check if user is admin
+      const tokenResult = await response.user.getIdTokenResult();
+      const isAdmin = !!tokenResult.claims.admin;
+      console.log("Is admin user: ", isAdmin);
+
+      // dispatch login action to update local user authState, adding in isAdmin
+      // - only gives access to upload-artwork Link in navbar
+      // upload-artwork page is protected on 'verel' server by middleware
+      // UploadingDocs is protected by rules
+      authDispatch({
+        type: "LOG_IN",
+        payload: { ...response.user, isAdmin },
+      });
 
       //redirect to homepage
       router.push("/");

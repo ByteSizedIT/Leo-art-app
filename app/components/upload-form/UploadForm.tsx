@@ -2,6 +2,8 @@
 
 import { useReducer } from "react";
 
+import { useRouter } from "next/navigation";
+
 import { collection, addDoc } from "firebase/firestore";
 import { ref, uploadBytes, getDownloadURL } from "firebase/storage";
 
@@ -66,35 +68,50 @@ const UploadForm = ({ allArtWork }: { allArtWork: ArtWorkDownload[] }) => {
     initialArtWorkState
   );
 
+  const router = useRouter();
+
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
 
-    // Create a reference to tobe file in storage
-    const artWorkRef = ref(firebaseStorage, artWorkState.image?.name);
+    try {
+      // Create a reference to tobe file in storage
+      const artWorkRef = ref(firebaseStorage, artWorkState.image?.name);
 
-    // Create file to update metadata
-    const newMetadata = {
-      contentType: "image/jpeg",
-    };
+      // Create file to update metadata
+      const newMetadata = {
+        contentType: "image/jpeg",
+      };
 
-    // 'file' comes from the Blob or File API
-    if (artWorkState.image)
-      await uploadBytes(artWorkRef, artWorkState.image, newMetadata);
+      // 'file' comes from the Blob or File API
+      if (artWorkState.image)
+        await uploadBytes(artWorkRef, artWorkState.image, newMetadata);
 
-    const imageURL = await getDownloadURL(artWorkRef);
+      const imageURL = await getDownloadURL(artWorkRef);
 
-    // Add a new document with a generated id.
-    const docRef = await addDoc(collection(firestoreDB, "artworks"), {
-      name: artWorkState.name,
-      description: artWorkState.description,
-      featuredStars: artWorkState.featuredStars,
-      featuredTeams: artWorkState.featuredTeams,
-      collections: artWorkState.collections,
-      tags: artWorkState.tags,
-      productTypes: artWorkState.productTypes,
-      imageURL,
-    });
-    console.log("Document written with ID: ", docRef.id);
+      // Add a new document with a generated id.
+      const docRef = await addDoc(collection(firestoreDB, "artworks"), {
+        name: artWorkState.name,
+        description: artWorkState.description,
+        featuredStars: artWorkState.featuredStars,
+        featuredTeams: artWorkState.featuredTeams,
+        collections: artWorkState.collections,
+        tags: artWorkState.tags,
+        productTypes: artWorkState.productTypes,
+        imageURL,
+      });
+
+      console.log("Document written with ID: ", docRef.id);
+
+      router.push(
+        `../../upload-artwork/upload-succeeded?artWorkName=${artWorkState.name}&artWorkID=${docRef.id}`
+      );
+    } catch (err) {
+      console.log(err);
+
+      router.push(
+        `../../upload-artwork/upload-failed?artWorkName=${artWorkState.name}`
+      );
+    }
   }
 
   return (

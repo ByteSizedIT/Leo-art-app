@@ -1,5 +1,9 @@
 import Image from "next/image";
 
+import { GrEdit } from "react-icons/gr";
+import { RiDeleteBin6Line } from "react-icons/ri";
+import { AiFillHeart, AiOutlineHeart } from "react-icons/ai";
+
 import { ArtWorkDownload } from "@/app/types";
 
 import { getAllArtWork } from "@/app/_utils/getAllArt";
@@ -44,6 +48,20 @@ const ArtWorkPage = async ({
         <p className="font-inter text-sm text-gray-500 pb-4 md:pb-0">
           {artWork?.description}
         </p>
+        <div className="flex justify-evenly">
+          <p className="cursor-pointer pt-6">
+            <AiOutlineHeart className="inline-block" />
+            {/* AiFillHeart,  */}
+            {` ${artWork?.likes || 0} likes`}
+          </p>
+
+          <p className="cursor-pointer pt-6">
+            <GrEdit className="inline-block " /> edit
+          </p>
+          <p className="cursor-pointer pt-6">
+            <RiDeleteBin6Line className="inline-block " /> delete
+          </p>
+        </div>
       </div>
       <Image
         src={artWork.imageURL}

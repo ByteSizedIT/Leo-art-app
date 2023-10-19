@@ -7,6 +7,7 @@ export interface ArtWork {
   tags?: string[];
   productTypes?: string[];
   imageURL: string;
+  likes?: number;
 }
 
 export interface ArtworkUpload extends ArtWork {

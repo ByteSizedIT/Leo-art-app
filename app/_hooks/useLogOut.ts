@@ -25,7 +25,7 @@ const useLogOut = () => {
       await signOut(firebaseAuth);
 
       // 'logout' on vercel server for browser cookie to be removed in response
-      const response = await fetch("http://localhost:3000/api/logout", {
+      const response = await fetch("/api/logout", {
         method: "POST",
       });
 

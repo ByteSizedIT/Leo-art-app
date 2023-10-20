@@ -2,7 +2,6 @@ import Image from "next/image";
 
 import { GrEdit } from "react-icons/gr";
 import { RiDeleteBin6Line } from "react-icons/ri";
-import { AiFillHeart, AiOutlineHeart } from "react-icons/ai";
 
 import { ArtWorkDownload } from "@/app/types";
 
@@ -11,6 +10,16 @@ import { getAllArtWork } from "@/app/_utils/getAllArt";
 import getSingleArtWork from "@/app/_utils/getSingleArt";
 
 import { notFound } from "next/navigation";
+
+// https://stackoverflow.com/questions/72829305/prop-classname-did-not-match-server-and-client
+// import LikeIcon from "@/app/components/artwork-icons/LikeIcon";
+import dynamic from "next/dynamic";
+const LikeIcon = dynamic(
+  () => import("@/app/components/artwork-icons/LikeIcon"),
+  {
+    ssr: false,
+  }
+);
 
 // Return a list of `params` to populate the [slug] dynamic segment - https://nextjs.org/docs/app/api-reference/functions/generate-static-params
 export async function generateStaticParams() {
@@ -49,11 +58,7 @@ const ArtWorkPage = async ({
           {artWork?.description}
         </p>
         <div className="flex justify-evenly">
-          <p className="cursor-pointer pt-6">
-            <AiOutlineHeart className="inline-block" />
-            {/* AiFillHeart,  */}
-            {` ${artWork?.likes || 0} likes`}
-          </p>
+          <LikeIcon artWork={artWork} />
 
           <p className="cursor-pointer pt-6">
             <GrEdit className="inline-block " /> edit

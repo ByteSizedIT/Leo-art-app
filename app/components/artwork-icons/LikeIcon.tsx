@@ -3,7 +3,7 @@
 import { useReducer, useEffect } from "react";
 
 import { firestoreDB } from "../../../firebase/firebase-config";
-import { doc, setDoc } from "firebase/firestore";
+import { doc, onSnapshot, setDoc } from "firebase/firestore";
 
 import { ArtWorkDownload } from "@/app/types";
 import { AiFillHeart, AiOutlineHeart } from "react-icons/ai";
@@ -15,10 +15,13 @@ interface LikeState {
 
 interface Action {
   type: string;
+  payload: number;
 }
 
 function likeReducer(prevLikeState: LikeState, action: Action) {
   switch (action.type) {
+    case "firebaseUpdate":
+      return { ...prevLikeState, totalLikes: action.payload };
     case "increment":
       return {
         ...prevLikeState,
@@ -48,6 +51,27 @@ const LikeIcon = ({ artWork }: { artWork: ArtWorkDownload }) => {
 
   const [likeState, likeDispatch] = useReducer(likeReducer, initialLikeState);
 
+  // listen for firebase likes
+  useEffect(() => {
+    console.log("useEffect re running");
+    const unsubscribe = onSnapshot(
+      doc(firestoreDB, "artworks", artWork.id),
+      async (doc) => {
+        console.log("Current data: ", doc.data());
+        const document = doc.data();
+        likeDispatch({
+          type: "firebaseUpdate",
+          payload: document?.totalLikes,
+        });
+      }
+    );
+    return () => {
+      console.log("useEffect unsubscribing");
+      unsubscribe();
+    };
+  }, [artWork.id]);
+
+  // update firebase likes
   useEffect(() => {
     if (likeState && artWork.id) {
       const artWorkRef = doc(firestoreDB, "artworks", artWork.id);
@@ -55,15 +79,21 @@ const LikeIcon = ({ artWork }: { artWork: ArtWorkDownload }) => {
     }
   }, [likeState, artWork.id]);
 
-  const handleLike = () => {
+  useEffect(() => {
+    console.log({ likeState });
+  }, [likeState]);
+
+  function handleLike() {
     if (!likeState.liked) {
       localStorage.setItem(`${artWork.id} liked`, "true");
-      likeDispatch({ type: "increment" });
+      console.log("local", localStorage.getItem(`${artWork.id} liked`));
+      likeDispatch({ type: "increment", payload: 0 });
     } else {
       localStorage.setItem(`${artWork.id} liked`, "false");
-      likeDispatch({ type: "decrement" });
+      console.log("local", localStorage.getItem(`${artWork.id} liked`));
+      likeDispatch({ type: "decrement", payload: 0 });
     }
-  };
+  }
 
   return (
     <div

@@ -96,8 +96,9 @@ const LikeIcon = ({ artWork }: { artWork: ArtWorkDownload }) => {
   }
 
   return (
-    <div
-      className="flex items-center gap-2 p-6 cursor-pointer"
+    <button
+      className="icon-button"
+      // border-solid border-2 rounded-lg outline-none hover:outline-gray-500 m-6 p-2
       onClick={handleLike}
     >
       <AiOutlineHeart
@@ -113,7 +114,7 @@ const LikeIcon = ({ artWork }: { artWork: ArtWorkDownload }) => {
       />
 
       <p>{`${likeState.totalLikes || 0} likes`}</p>
-    </div>
+    </button>
   );
 };
 export default LikeIcon;

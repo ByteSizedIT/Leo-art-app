@@ -9,3 +9,7 @@ h1 {
 button {
   @apply border-solid border-2 rounded-lg outline-none hover:outline-gray-500 m-6 p-2;
 }
+
+button.icon-button {
+  @apply border-none hover:outline-none flex items-center gap-2;
+}

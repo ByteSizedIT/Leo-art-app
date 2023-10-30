@@ -1,7 +1,6 @@
 import Image from "next/image";
 
 import { GrEdit } from "react-icons/gr";
-import { RiDeleteBin6Line } from "react-icons/ri";
 
 import { ArtWorkDownload } from "@/app/types";
 
@@ -20,6 +19,8 @@ const LikeIcon = dynamic(
     ssr: false,
   }
 );
+
+import DeleteIcon from "@/app/components/artwork-icons/DeleteIcon";
 
 // Return a list of `params` to populate the [slug] dynamic segment - https://nextjs.org/docs/app/api-reference/functions/generate-static-params
 export async function generateStaticParams() {
@@ -63,9 +64,11 @@ const ArtWorkPage = async ({
           <p className="cursor-pointer pt-6">
             <GrEdit className="inline-block " /> edit
           </p>
-          <p className="cursor-pointer pt-6">
-            <RiDeleteBin6Line className="inline-block " /> delete
-          </p>
+          <DeleteIcon
+            artWorkName={artWork?.name}
+            artWorkID={artWork?.id}
+            artWorkURL={artWork?.imageURL}
+          />
         </div>
       </div>
       <Image

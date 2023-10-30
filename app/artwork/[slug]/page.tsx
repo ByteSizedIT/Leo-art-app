@@ -21,6 +21,7 @@ const LikeIcon = dynamic(
 );
 
 import DeleteIcon from "@/app/components/artwork-icons/DeleteIcon";
+import EditIcon from "@/app/components/artwork-icons/EditIcon";
 
 // Return a list of `params` to populate the [slug] dynamic segment - https://nextjs.org/docs/app/api-reference/functions/generate-static-params
 export async function generateStaticParams() {
@@ -60,10 +61,7 @@ const ArtWorkPage = async ({
         </p>
         <div className="flex justify-evenly">
           <LikeIcon artWork={artWork} />
-
-          <p className="cursor-pointer pt-6">
-            <GrEdit className="inline-block " /> edit
-          </p>
+          <EditIcon artWorkID={artWork?.id} />
           <DeleteIcon
             artWorkName={artWork?.name}
             artWorkID={artWork?.id}

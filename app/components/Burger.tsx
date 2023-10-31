@@ -63,6 +63,15 @@ const Burger = () => {
         <Link href="/about" className="text-black" onClick={handleClick}>
           ABOUT
         </Link>
+        {authState.user?.isAdmin && (
+          <Link
+            href="/upload-artwork"
+            className="text-black"
+            onClick={handleClick}
+          >
+            UPLOAD
+          </Link>
+        )}
         {!authState?.user ? (
           <Link href="/login" className="text-black" onClick={handleClick}>
             LOG IN

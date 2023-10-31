@@ -113,7 +113,9 @@ const LikeIcon = ({ artWork }: { artWork: ArtWorkDownload }) => {
         } text-pink-500 scale-150 `}
       />
 
-      <p>{`${likeState.totalLikes || 0} likes`}</p>
+      <p className="pl-2">{`${likeState.totalLikes || 0} ${
+        likeState.totalLikes === 1 ? "like" : "likes"
+      }`}</p>
     </button>
   );
 };

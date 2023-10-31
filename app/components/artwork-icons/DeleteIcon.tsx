@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 
 import { RiDeleteBin6Line } from "react-icons/ri";
 
@@ -27,10 +27,13 @@ const DeleteIcon = ({
 
   const { authState } = useAuthContext();
 
+  const modal = useRef<HTMLDivElement | null>(null);
+
   const router = useRouter();
 
   useEffect(() => {
     console.log({ showModal });
+    modal?.current?.scrollIntoView({ behavior: "smooth" });
   }, [showModal]);
 
   if (!authState.user?.isAdmin) return;
@@ -62,19 +65,23 @@ const DeleteIcon = ({
         // border-solid border-2 rounded-lg outline-none hover:outline-gray-500 m-6 p-2
         onClick={() => setShowModal(true)}
       >
-        <RiDeleteBin6Line className="inline-block" /> delete
+        <RiDeleteBin6Line className="inline-block" />
+        <p className="pl-2">delete</p>
       </button>
       {showModal && (
         <div className="z-50">
           <div
+            ref={modal}
             className={`${
               showModal ? "block" : "hidden"
             } w-screen h-screen absolute left-0 top-0 bg-black z-20 bg-opacity-40 flex items-center justify-center`}
           >
-            <div className="bg-gray-50 w-1/2 h-1/2 z-50 bg-opacity-100 relative flex flex-col items-center justify-center">
+            <div className="bg-gray-50 w-3/4 md:w-1/2 h-3/4 md:h-1/2 z-50 bg-opacity-100 relative flex flex-col items-center justify-center">
               <button
                 className="icon-button absolute top-0 right-0"
-                onClick={() => setShowModal(false)}
+                onClick={() => {
+                  setShowModal(false);
+                }}
               >
                 &times;
               </button>
@@ -87,9 +94,16 @@ const DeleteIcon = ({
                 </p>
               </p>
 
-              <div className="flex">
-                <button onClick={deleteArtWork}>Yep, delete!</button>
-                <button onClick={() => setShowModal(false)}>Nooooooo...</button>
+              <div className="flex justify-center gap-4">
+                <button className="w-2/5 mx-0" onClick={deleteArtWork}>
+                  Yep, delete!
+                </button>
+                <button
+                  className="w-2/5 mx-0 break-words"
+                  onClick={() => setShowModal(false)}
+                >
+                  Nooo...
+                </button>
               </div>
             </div>
           </div>

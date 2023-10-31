@@ -1,7 +1,5 @@
 import Image from "next/image";
 
-import { GrEdit } from "react-icons/gr";
-
 import { ArtWorkDownload } from "@/app/types";
 
 import { getAllArtWork } from "@/app/_utils/getAllArt";
@@ -53,7 +51,7 @@ const ArtWorkPage = async ({
   return (
     <div className="flex flex-col md:flex-row flex-grow items-center text-center max-w-5xl mx-auto p-5">
       <div className="w-full md:min-w-[55%] md:pr-16">
-        <h1 className="font-medium text-2xl pb-6">
+        <h1 className="font-medium text-2xl pb-0 md:pb-6">
           {artWork?.name?.toUpperCase()}
         </h1>
         <p className="font-inter text-sm text-gray-500 pb-4 md:pb-0">

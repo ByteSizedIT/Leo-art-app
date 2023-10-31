@@ -18,7 +18,7 @@ const EditIcon = ({ artWorkID }: { artWorkID: string }) => {
       onClick={() => router.push(`/edit/${artWorkID}`)}
     >
       <GrEdit />
-      edit
+      <p className="pl-2">edit</p>
     </button>
   );
 };

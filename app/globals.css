@@ -11,5 +11,5 @@ button {
 }
 
 button.icon-button {
-  @apply border-none hover:outline-none flex items-center gap-2;
+  @apply border-none hover:outline-none flex items-center py-0 my-2;
 }

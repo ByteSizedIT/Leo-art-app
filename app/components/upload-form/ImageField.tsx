@@ -5,12 +5,13 @@ import React, { useRef } from "react";
 import { Dispatch } from "react";
 
 import { ArtWorkDispatchAction } from "../../types";
-import { handleClientScriptLoad } from "next/script";
 
 const ImageField = ({
   artWorkDispatch,
+  imageRequired,
 }: {
   artWorkDispatch: Dispatch<ArtWorkDispatchAction>;
+  imageRequired: boolean;
 }) => {
   const fileUploadRef = useRef<HTMLInputElement>(null);
 
@@ -32,7 +33,7 @@ const ImageField = ({
         Artwork:
       </span>
       <input
-        required
+        required={imageRequired}
         type="file"
         ref={fileUploadRef}
         accept=".png"

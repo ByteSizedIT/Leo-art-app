@@ -10,7 +10,7 @@ import CreatableSelect from "react-select/creatable";
 
 import { MultiValue, ActionMeta } from "react-select";
 
-import { ArtWork, ReactSelectOption } from "../../types";
+import { ArtWork, ReactSelectOption, ArtworkUpload } from "../../types";
 
 import { customStyles } from "@/app/_utils/react-select-styles";
 
@@ -18,9 +18,11 @@ import sort from "@/app/_utils/sortReactSelectOptions";
 
 const CollectionsField = ({
   allArtWork,
+  artWorkState,
   artWorkDispatch,
 }: {
   allArtWork: ArtWork[];
+  artWorkState?: ArtworkUpload;
   artWorkDispatch: Dispatch<ArtWorkDispatchAction>;
 }) => {
   const [existingCollections, setExistingCollections] = useState<
@@ -69,6 +71,10 @@ const CollectionsField = ({
         styles={customStyles}
         isMulti
         options={existingCollections}
+        value={artWorkState?.collections?.map((collection) => ({
+          value: collection,
+          label: collection,
+        }))}
         onChange={handleChange}
       />
     </label>

@@ -10,7 +10,7 @@ import CreatableSelect from "react-select/creatable";
 
 import { MultiValue, ActionMeta } from "react-select";
 
-import { ArtWork, ReactSelectOption } from "../../types";
+import { ArtWork, ReactSelectOption, ArtworkUpload } from "../../types";
 
 import { customStyles } from "@/app/_utils/react-select-styles";
 
@@ -18,9 +18,11 @@ import sort from "@/app/_utils/sortReactSelectOptions";
 
 const TeamsField = ({
   allArtWork,
+  artWorkState,
   artWorkDispatch,
 }: {
   allArtWork: ArtWork[];
+  artWorkState?: ArtworkUpload;
   artWorkDispatch: Dispatch<ArtWorkDispatchAction>;
 }) => {
   const [existingTeams, setExistingTeams] = useState<ReactSelectOption[]>([]);
@@ -63,6 +65,10 @@ const TeamsField = ({
         styles={customStyles}
         isMulti
         options={existingTeams}
+        value={artWorkState?.featuredTeams?.map((team) => ({
+          value: team,
+          label: team,
+        }))}
         onChange={handleChange}
       />
     </label>

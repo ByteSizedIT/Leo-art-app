@@ -4,7 +4,13 @@ import React, { useEffect, useState, useRef } from "react";
 
 import { Dispatch } from "react";
 
-import { ArtWork, ArtWorkDispatchAction, ReactSelectOption } from "../../types";
+import {
+  ArtWork,
+  ArtWorkDispatchAction,
+  ArtWorkDownload,
+  ArtworkUpload,
+  ReactSelectOption,
+} from "../../types";
 
 import CreatableSelect from "react-select/creatable";
 
@@ -20,9 +26,11 @@ import sort from "@/app/_utils/sortReactSelectOptions";
 
 const StarsField = ({
   allArtWork,
+  artWorkState,
   artWorkDispatch,
 }: {
   allArtWork: ArtWork[];
+  artWorkState?: ArtworkUpload;
   artWorkDispatch: Dispatch<ArtWorkDispatchAction>;
 }) => {
   const [existingStars, setExistingStars] = useState<ReactSelectOption[]>([]);
@@ -31,7 +39,7 @@ const StarsField = ({
   //   null
   // );
 
-  // set existing stars
+  // set existing featuredStars available on allArtwork
   useEffect(() => {
     const tempStarsArr: ReactSelectOption[] = [];
     allArtWork.forEach((artWork) => {
@@ -65,6 +73,10 @@ const StarsField = ({
         styles={customStyles}
         isMulti
         options={existingStars}
+        value={artWorkState?.featuredStars?.map((star) => ({
+          value: star,
+          label: star,
+        }))}
         onChange={handleChange}
       />
     </label>

@@ -1,19 +1,8 @@
 "use client";
 
-import { useReducer } from "react";
+import useUpload from "@/app/_hooks/useUpload";
 
-import { useRouter } from "next/navigation";
-
-import { collection, addDoc } from "firebase/firestore";
-import { ref, uploadBytes, getDownloadURL } from "firebase/storage";
-
-import { firestoreDB, firebaseStorage } from "@/firebase/firebase-config";
-
-import {
-  ArtWorkDownload,
-  ArtworkUpload,
-  ArtWorkDispatchAction,
-} from "../../types";
+import { ArtWorkDownload } from "../../types";
 
 import ArtWorkNameField from "./ArtWorkNameField";
 import DescriptionField from "./DescriptionField";
@@ -24,94 +13,25 @@ import TagsField from "./TagsField";
 import ProductTypesField from "./ProductTypesField";
 import ImageUploadField from "./ImageField";
 
-const initialArtWorkState: ArtworkUpload = {
-  name: "",
-  description: "",
-  featuredStars: [],
-  featuredTeams: [],
-  collections: [],
-  tags: [],
-  productTypes: [],
-  imageURL: "",
-  image: null,
-};
+const UploadForm = ({
+  artWorkID,
+  allArtWork,
+  artToEdit,
+}: {
+  allArtWork: ArtWorkDownload[];
+  artWorkID?: string;
+  artToEdit?: ArtWorkDownload;
+}) => {
+  const {
+    uploadNewArtWork,
+    uploadEditedArtWork,
+    artWorkState,
+    artWorkDispatch,
+  } = useUpload(artToEdit, artWorkID);
 
-export function artWorkReducer(
-  prevState: ArtworkUpload,
-  action: ArtWorkDispatchAction
-) {
-  switch (action.type) {
-    case "name":
-      return { ...prevState, name: action.payload };
-    case "description":
-      return { ...prevState, description: action.payload };
-    case "featuredStars":
-      return { ...prevState, featuredStars: action.payload };
-    case "featuredTeams":
-      return { ...prevState, featuredTeams: action.payload };
-    case "collections":
-      return { ...prevState, collections: action.payload };
-    case "tags":
-      return { ...prevState, tags: action.payload };
-    case "productTypes":
-      return { ...prevState, productTypes: action.payload };
-    case "image":
-      return { ...prevState, image: action.payload };
-    default:
-      return prevState;
-  }
-}
-
-const UploadForm = ({ allArtWork }: { allArtWork: ArtWorkDownload[] }) => {
-  const [artWorkState, artWorkDispatch] = useReducer(
-    artWorkReducer,
-    initialArtWorkState
-  );
-
-  const router = useRouter();
-
-  async function handleSubmit(e: React.FormEvent) {
+  function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
-
-    try {
-      // Create a reference to tobe file in storage
-      const artWorkRef = ref(firebaseStorage, artWorkState.image?.name);
-
-      // Create file to update metadata
-      const newMetadata = {
-        contentType: "image/jpeg",
-      };
-
-      // 'file' comes from the Blob or File API
-      if (artWorkState.image)
-        await uploadBytes(artWorkRef, artWorkState.image, newMetadata);
-
-      const imageURL = await getDownloadURL(artWorkRef);
-
-      // Add a new document with a generated id.
-      const docRef = await addDoc(collection(firestoreDB, "artworks"), {
-        name: artWorkState.name,
-        description: artWorkState.description,
-        featuredStars: artWorkState.featuredStars,
-        featuredTeams: artWorkState.featuredTeams,
-        collections: artWorkState.collections,
-        tags: artWorkState.tags,
-        productTypes: artWorkState.productTypes,
-        imageURL,
-      });
-
-      console.log("Document written with ID: ", docRef.id);
-
-      router.push(
-        `../../upload-artwork/upload-succeeded?artWorkName=${artWorkState.name}&artWorkID=${docRef.id}`
-      );
-    } catch (err) {
-      console.log(err);
-
-      router.push(
-        `../../upload-artwork/upload-failed?artWorkName=${artWorkState.name}`
-      );
-    }
+    artToEdit ? uploadEditedArtWork() : uploadNewArtWork();
   }
 
   return (
@@ -128,23 +48,40 @@ const UploadForm = ({ allArtWork }: { allArtWork: ArtWorkDownload[] }) => {
         artWorkState={artWorkState}
         artWorkDispatch={artWorkDispatch}
       />
-      <StarsField allArtWork={allArtWork} artWorkDispatch={artWorkDispatch} />
-      <TeamsField allArtWork={allArtWork} artWorkDispatch={artWorkDispatch} />
+      <StarsField
+        allArtWork={allArtWork}
+        artWorkState={artWorkState}
+        artWorkDispatch={artWorkDispatch}
+      />
+      <TeamsField
+        allArtWork={allArtWork}
+        artWorkState={artWorkState}
+        artWorkDispatch={artWorkDispatch}
+      />
       <CollectionsField
         allArtWork={allArtWork}
+        artWorkState={artWorkState}
         artWorkDispatch={artWorkDispatch}
       />
-      <TagsField allArtWork={allArtWork} artWorkDispatch={artWorkDispatch} />
+      <TagsField
+        allArtWork={allArtWork}
+        artWorkState={artWorkState}
+        artWorkDispatch={artWorkDispatch}
+      />
       <ProductTypesField
         allArtWork={allArtWork}
+        artWorkState={artWorkState}
         artWorkDispatch={artWorkDispatch}
       />
-      <ImageUploadField artWorkDispatch={artWorkDispatch} />
+      <ImageUploadField
+        artWorkDispatch={artWorkDispatch}
+        imageRequired={!artToEdit}
+      />
       <button
         type="submit"
         className="w-1/2 mx-auto text-sm sm:text-base md:text-lg"
       >
-        Submit
+        Submit {artToEdit ? "Edit" : "New Artwork"}
       </button>
     </form>
   );

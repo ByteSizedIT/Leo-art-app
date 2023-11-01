@@ -10,7 +10,7 @@ import CreatableSelect from "react-select/creatable";
 
 import { MultiValue, ActionMeta } from "react-select";
 
-import { ArtWork, ReactSelectOption } from "../../types";
+import { ArtWork, ReactSelectOption, ArtworkUpload } from "../../types";
 
 import { customStyles } from "@/app/_utils/react-select-styles";
 
@@ -18,9 +18,11 @@ import sort from "@/app/_utils/sortReactSelectOptions";
 
 const ProductTypesField = ({
   allArtWork,
+  artWorkState,
   artWorkDispatch,
 }: {
   allArtWork: ArtWork[];
+  artWorkState?: ArtworkUpload;
   artWorkDispatch: Dispatch<ArtWorkDispatchAction>;
 }) => {
   const [existingProductTypes, setExistingProductTypes] = useState<
@@ -69,6 +71,10 @@ const ProductTypesField = ({
         styles={customStyles}
         isMulti
         options={existingProductTypes}
+        value={artWorkState?.productTypes?.map((productType) => ({
+          value: productType,
+          label: productType,
+        }))}
         onChange={handleChange}
       />
     </label>

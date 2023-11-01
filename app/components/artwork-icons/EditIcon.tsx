@@ -15,7 +15,7 @@ const EditIcon = ({ artWorkID }: { artWorkID: string }) => {
   return (
     <button
       className="icon-button"
-      onClick={() => router.push(`/edit/${artWorkID}`)}
+      onClick={() => router.push(`/edit-artwork/${artWorkID}`)}
     >
       <GrEdit />
       <p className="pl-2">edit</p>
